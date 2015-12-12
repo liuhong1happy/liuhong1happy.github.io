@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Liuhong's Blog
-tagline: 人生到处知何似，应似飞鸿踏雪泥
+tagline: "人生到处知何似，应似飞鸿踏雪泥"
 ---
 {% include JB/setup %}
 
