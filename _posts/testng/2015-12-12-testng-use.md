@@ -341,3 +341,4 @@ verbose="2" 标识的就是记录的日志级别，共有0-10的级别，其中0
 </suite>
 {% endhighlight %}
 
+本文转载自 [http://www.cnblogs.com/TankXiao/p/3888070.html](http://www.cnblogs.com/TankXiao/p/3888070.html)
