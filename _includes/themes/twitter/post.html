@@ -5,7 +5,8 @@
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>{{ page.date | date: "%Y年%-m月%-d日"  }}</span>
+      <span><b>最新修改日期：</b>{{ page.date | date: "%Y年%-m月%-d日"  }}</span>
+      <span><b>作者：</b>{{ site.author.name }}</span>
     </div>
     <div class="content">
       {{ content }}
