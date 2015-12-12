@@ -74,7 +74,8 @@ public class TestNGLearn1 {
 
 ## TestNG的基本注解
 
-<table>
+<table class="table table-bordered">
+    <tr><td class="text-center">注解</td><td class="text-center">描述</td></tr>
     <tr> <td>@BeforeSuite</td>	 <td>注解的方法将只运行一次，运行所有测试前此套件中。</td> </tr>
     <tr> <td>@AfterSuite</td>	 <td>注解的方法将只运行一次此套件中的所有测试都运行之后。</td> </tr>
     <tr> <td>@BeforeClass</td>	 <td>注解的方法将只运行一次先行先试在当前类中的方法调用。</td> </tr>
