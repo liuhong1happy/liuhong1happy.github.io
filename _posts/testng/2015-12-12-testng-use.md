@@ -79,8 +79,8 @@ public class TestNGLearn1 {
     <tr> <td>@AfterSuite</td>	 <td>注解的方法将只运行一次此套件中的所有测试都运行之后。</td> </tr>
     <tr> <td>@BeforeClass</td>	 <td>注解的方法将只运行一次先行先试在当前类中的方法调用。</td> </tr>
     <tr> <td>@AfterClass</td>	 <td>注解的方法将只运行一次后已经运行在当前类中的所有测试方法。</td> </tr>
-    <tr> <td>@BeforeTest</td>	 <td><pre>注解的方法将被运行之前的任何测试方法属于内部类的 <test>标签的运行。</pre></td> </tr>
-    <tr> <td>@AfterTest</td>	 <td><pre>注解的方法将被运行后，所有的测试方法，属于内部类的<test>标签的运行。</pre></td> </tr>
+    <tr> <td>@BeforeTest</td>	 <td>注解的方法将被运行之前的任何测试方法属于内部类的&lt;test&gt;标签的运行。</td> </tr>
+    <tr> <td>@AfterTest</td>	 <td>注解的方法将被运行后，所有的测试方法，属于内部类的&lt;test&gt;标签的运行。</td> </tr>
     <tr> <td>@BeforeGroups</td>	 <td>组的列表，这种配置方法将之前运行。此方法是保证在运行属于任何这些组第一个测试方法，该方法被调用。</td> </tr>
     <tr> <td>@AfterGroups</td>	 <td>组的名单，这种配置方法后，将运行。此方法是保证运行后不久，最后的测试方法，该方法属于任何这些组被调用。</td> </tr>
     <tr> <td>@BeforeMethod</td>	 <td>注解的方法将每个测试方法之前运行。</td> </tr>
