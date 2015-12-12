@@ -18,10 +18,10 @@ body{
     font-size: 24px;
 }
 .navbar-brand, .navbar-nav>li>a {
-    text-shadow: 1px 3px 3px #999;
+    text-shadow: 1px 2px 3px #999;
 }
 .navbar-brand:hover, .navbar-nav>li>a:hover {
-    text-shadow: 1px 3px 1px #666;
+    text-shadow: 1px 2px 1px #666;
 }
 
 /* posts index */
