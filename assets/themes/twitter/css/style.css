@@ -28,7 +28,9 @@ body{
 .h6, h6{
     font-size: 14px;
 }
-
+.tag_box{
+    padding: 0px;
+}
 .tag_box>li>i:before{
     margin-right: 5px;
     line-height: 32px;
