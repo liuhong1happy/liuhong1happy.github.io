@@ -1,7 +1,7 @@
 /* Custom container */
 .navbar-default{
     border-radius: 0px;
-    box-shadow: 0px 3px 3px #666;
+    box-shadow: 0px 1px 3px #999;
     height: 72px;
     margin-bottom: 0px;
 }
