@@ -34,11 +34,11 @@ tags : [react]
 
 这个应用程序看起来很简单，你可以想出好几种不同的方式来写。最容易想到的可能是，在你的 JavaScript 代码里面存储这样的数据：
 
-```js
+{% highlight js %}
 var sortKey = "new" // 排序的字段，新增（new）、取消（cancel）、净关注（gain）、累积（cumulate）人数
 var sortType = 1 // 升序还是逆序
 var data = [{...}, {...}, {..}, ..] // 表格数据
-```
+{% endhighlight %}
 
 用三个字段分别存储当前排序的字段、排序方向、还有表格数据；然后给表格头部加点击事件：当用户点击特定的字段的时候，根据上面几个字段存储的内容来对内容进行排序，然后用 JS 或者 jQuery 操作 DOM，更新页面的排序状态（表头的那几个箭头表示当前排序状态，也需要更新）和表格内容。
 
@@ -64,7 +64,7 @@ DOM是很慢的。如果我们把一个简单的div元素的属性都打印出�
 
 相对于 DOM 对象，原生的 JavaScript 对象处理起来更快，而且更简单。DOM 树上的结构、属性信息我们都可以很容易地用 JavaScript 对象表示出来：
 
-```js
+{% highlight js %}
 var element = {
   tagName: 'ul', // 节点标签名
   props: { // DOM的属性，用一个对象存储键值对
@@ -76,17 +76,17 @@ var element = {
     {tagName: 'li', props: {class: 'item'}, children: ["Item 3"]},
   ]
 }
-```
+{% endhighlight %}
 
 上面对应的HTML写法是：
 
-```html
+{% highlight html %}
 <ul id='list'>
   <li class='item'>Item 1</li>
   <li class='item'>Item 2</li>
   <li class='item'>Item 3</li>
 </ul>
-```
+{% endhighlight %}
 
 既然原来 DOM 树的信息都可以用 JavaScript 对象来表示，反过来，你就可以根据这个用 JavaScript 对象表示的树结构来构建一棵真正的DOM树。
 
@@ -110,7 +110,7 @@ var element = {
 
 element.js
 
-```js
+{% highlight js %}
 function Element (tagName, props, children) {
   this.tagName = tagName
   this.props = props
@@ -120,11 +120,11 @@ function Element (tagName, props, children) {
 module.exports = function (tagName, props, children) {
   return new Element(tagName, props, children)
 }
-```
+{% endhighlight %}
 
 例如上面的 DOM 结构就可以简单的表示：
 
-```js
+{% highlight js %}
 var el = require('./element')
 
 var ul = el('ul', {id: 'list'}, [
@@ -132,11 +132,11 @@ var ul = el('ul', {id: 'list'}, [
   el('li', {class: 'item'}, ['Item 2']),
   el('li', {class: 'item'}, ['Item 3'])
 ])
-```
+{% endhighlight %}
 
 现在ul只是一个 JavaScript 对象表示的 DOM 结构，页面上并没有这个结构。我们可以根据这个ul构建真正的`<ul>`：
 
-```js
+{% highlight js %}
 Element.prototype.render = function () {
   var el = document.createElement(this.tagName) // 根据tagName构建
   var props = this.props
@@ -157,24 +157,24 @@ Element.prototype.render = function () {
 
   return el
 }
-```
+{% endhighlight %}
 
 render方法会根据tagName构建一个真正的DOM节点，然后设置这个节点的属性，最后递归地把自己的子节点也构建起来。所以只需要：
 
-```js
+{% highlight js %}
 var ulRoot = ul.render()
 document.body.appendChild(ulRoot)
-```
+{% endhighlight %}
 
 上面的ulRoot是真正的DOM节点，把它塞入文档中，这样body里面就有了真正的`<ul>`的DOM结构：
 
-```html
+{% highlight html %}
 <ul id='list'>
   <li class='item'>Item 1</li>
   <li class='item'>Item 2</li>
   <li class='item'>Item 3</li>
 </ul>
-```
+{% endhighlight %}
 
 完整代码可见 [element.js](https://github.com/livoras/simple-virtual-dom/blob/master/lib/element.js)。
 
@@ -194,7 +194,7 @@ document.body.appendChild(ulRoot)
 
 在深度优先遍历的时候，每遍历到一个节点就把该节点和新的的树进行对比。如果有差异的话就记录到一个对象里面。
 
-```js
+{% highlight js %}
 // diff 函数，对比两棵树
 function diff (oldTree, newTree) {
   var index = 0 // 当前节点的标志
@@ -224,13 +224,13 @@ function diffChildren (oldChildren, newChildren, index, patches) {
     leftNode = child
   })
 }
-```
+{% endhighlight %}
 
 例如，上面的div和新的div有差异，当前的标记是0，那么：
 
-```js
+{% highlight js %}
 patches[0] = [{difference}, {difference}, ...] // 用数组存储新旧节点的不同
-```
+{% endhighlight %}
 
 同理`p`是`patches[1]`，`ul`是`patches[3]`，类推。
 
@@ -245,25 +245,25 @@ patches[0] = [{difference}, {difference}, ...] // 用数组存储新旧节点的
 
 所以我们定义了几种差异类型：
 
-```js
+{% highlight js %}
 var REPLACE = 0
 var REORDER = 1
 var PROPS = 2
 var TEXT = 3
-```
+{% endhighlight %}
 
 对于节点替换，很简单。判断新旧节点的tagName和是不是一样的，如果不一样的说明需要替换掉。如div换成section，就记录下：
 
-```js
+{% highlight js %}
 patches[0] = [{
   type: REPALCE,
   node: newNode // el('section', props, children)
 }]
-```
+{% endhighlight %}
 
 如果给div新增了属性id为container，就记录下：
 
-```js
+{% highlight js %}
 patches[0] = [{
   type: REPALCE,
   node: newNode // el('section', props, children)
@@ -273,16 +273,16 @@ patches[0] = [{
     id: "container"
   }
 }]
-```
+{% endhighlight %}
 
 如果是文本节点，如上面的文本节点2，就记录下：
 
-```js
+{% highlight js %}
 patches[2] = [{
   type: TEXT,
   content: "Virtual DOM2"
 }]
-```
+{% endhighlight %}
 
 那如果把我div的子节点重新排序呢？例如`p, ul, div`的顺序换成了`div, p`, ul。这个该怎么对比？如果按照同层级进行顺序对比的话，它们都会被替换掉。如p和div的tagName不同，p会被div所替代。最终，三个节点都会被替换，这样DOM开销就非常大。而实际上是不需要替换节点，而只需要经过节点移动就可以达到，我们只需知道怎么进行移动。
 
@@ -306,12 +306,12 @@ patches[2] = [{
 
 我们能够获取到某个父节点的子节点的操作，就可以记录下来：
 
-```js
+{% highlight js %}
 patches[0] = [{
   type: REORDER,
   moves: [{remove or insert}, {remove or insert}, ...]
 }]
-```
+{% endhighlight %}
 
 但是要注意的是，因为tagName是可重复的，不能用这个来进行对比。所以需要给子节点加上唯一标识key，列表对比的时候，使用key进行对比，这样才能复用老的 DOM 树上的节点。
 
@@ -321,7 +321,7 @@ patches[0] = [{
 
 因为步骤一所构建的 JavaScript 对象树和`render`出来真正的DOM树的信息、结构是一样的。所以我们可以对那棵DOM树也进行深度优先的遍历，遍历的时候从步骤二生成的patches对象中找出当前遍历的节点差异，然后进行 DOM 操作。
 
-```js
+{% highlight js %}
 
 function patch (node, patches) {
   var walker = {index: 0}
@@ -345,12 +345,12 @@ function dfsWalk (node, walker, patches) {
   }
 }
 
-```
+{% endhighlight %}
 
 applyPatches，根据不同类型的差异对当前节点进行 DOM 操作：
 
 
-```js
+{% highlight js %}
 function applyPatches (node, currentPatches) {
   currentPatches.forEach(function (currentPatch) {
     switch (currentPatch.type) {
@@ -371,7 +371,7 @@ function applyPatches (node, currentPatches) {
     }
   })
 }
-```
+{% endhighlight %}
 
 完整代码可见 [patch.js](https://github.com/livoras/simple-virtual-dom/blob/master/lib/patch.js)。
 
@@ -379,7 +379,7 @@ function applyPatches (node, currentPatches) {
 
 Virtual DOM 算法主要是实现上面步骤的三个函数：[element](https://github.com/livoras/simple-virtual-dom/blob/master/lib/element.js)，[diff](https://github.com/livoras/simple-virtual-dom/blob/master/lib/diff.js)，[patch]((https://github.com/livoras/simple-virtual-dom/blob/master/lib/patch.js))。然后就可以实际的进行使用：
 
-```js
+{% highlight js %}
 // 1. 构建虚拟DOM
 var tree = el('div', {'id': 'container'}, [
     el('h1', {style: 'color: blue'}, ['simple virtal dom']),
@@ -404,7 +404,7 @@ var patches = diff(tree, newTree)
 // 5. 在真正的DOM元素上应用变更
 patch(root, patches)
 
-```
+{% endhighlight %}
 
 当然这是非常粗糙的实践，实际中还需要处理事件监听等；生成虚拟 DOM 的时候也可以加入 JSX 语法。这些事情都做了的话，就可以构造一个简单的`ReactJS`了。
 

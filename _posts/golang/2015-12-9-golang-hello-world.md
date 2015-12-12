@@ -20,7 +20,7 @@ tags : [golang]
 
 ## 包目录下创建文件hello.go
 
-```c
+{% highlight c %}
 
 package main
 
@@ -32,7 +32,7 @@ func main() {
 
 }
 
-```
+{% endhighlight %}
 
 ## 安装包
 
