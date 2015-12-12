@@ -75,7 +75,10 @@ public class TestNGLearn1 {
 ## TestNG的基本注解
 
 <table class="table table-bordered">
-    <tr><td class="text-center">注解</td><td class="text-center">描述</td></tr>
+<thead>
+    <tr><th class="text-center">注解</td><th class="text-center">描述</td></tr>
+</thead>
+<tbody>
     <tr> <td>@BeforeSuite</td>	 <td>注解的方法将只运行一次，运行所有测试前此套件中。</td> </tr>
     <tr> <td>@AfterSuite</td>	 <td>注解的方法将只运行一次此套件中的所有测试都运行之后。</td> </tr>
     <tr> <td>@BeforeClass</td>	 <td>注解的方法将只运行一次先行先试在当前类中的方法调用。</td> </tr>
@@ -92,6 +95,7 @@ public class TestNGLearn1 {
     <tr><td> @Listeners </td><td>定义一个测试类的监听器。  </td></tr>
     <tr><td> @Parameters </td><td> 介绍如何将参数传递给@Test方法。 </td></tr>
     <tr><td> @Test </td><td>标记一个类或方法作为测试的一部分。 </td></tr>
+</tbody>
 </table>
 	
 	
