@@ -29,6 +29,11 @@ body{
     font-size: 14px;
 }
 
+.tag_box>li>i:before{
+    margin-right: 5px;
+    line-height: 32px;
+}
+
 /* posts index */
 .post > h3.title {
   position: relative;
