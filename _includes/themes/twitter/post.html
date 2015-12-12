@@ -29,12 +29,13 @@
   {% endunless %}  
 
     <hr>
-    <div class="pagination">
-      <ul>
+    
+    <nav>
+      <ul class="pager">
       {% if page.previous %}
-        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; 上一篇</a></li>
+        <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; 上一篇</a></li>
       {% else %}
-        <li class="prev disabled"><a>&larr; 上一篇</a></li>
+        <li class="previous disabled"><a>&larr; 上一篇</a></li>
       {% endif %}
         <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">归档</a></li>
       {% if page.next %}
@@ -43,7 +44,7 @@
         <li class="next disabled"><a>下一篇 &rarr;</a>
       {% endif %}
       </ul>
-    </div>
+    </nav>
     <hr>
     {% include JB/comments %}
   </div>
