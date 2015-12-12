@@ -1,3 +1,12 @@
+---
+layout: post
+category : Selenium
+title: "Selenium使用介绍"
+tagline: "Selenium的预备知识"
+tags : [Selenium]
+---
+{% include JB/setup %}
+
 Selenium 是 thoughtworks公司的一个集成测试的强大工具。最近参与了一个系统移植的项目，正好用到这个工具，把一些使用心得分享给大家，希望大家能多多使用这样的强大的，免费的工具，来保证我们的质量。
 
 Selenium 的文档现存的不少，不过都太简单了。使用Selenium的时候，我更多的是直接去看API文档，好在API不错，一个一个看，就能找到所需要的 :-)   官方网站：http://www.openqa.org/selenium/
@@ -49,6 +58,7 @@ public class TestPage2 extends TestCase {
          selenium.start();            
          super.setUp();                       
      }  
+     
      protected void tearDown() throws Exception {  
          selenium.stop();  
          super.tearDown();  
@@ -56,12 +66,13 @@ public class TestPage2 extends TestCase {
     
 } 
 {% endhighlight %}
-　　代码十分简单，作用就是初始化一个 Selenium 对象。其中：
 
-　　url : 就是你要测试的网站
+代码十分简单，作用就是初始化一个 Selenium 对象。其中：
 
-　　localhost:  可以不是localhost，但是必须是 selenium server 启动的地址
+url : 就是你要测试的网站
 
-　　*iexplore :  可以是其它浏览器类型，可以在网站上看都支持哪些。
+localhost:  可以不是localhost，但是必须是 selenium server 启动的地址
 
-　　下面我就要讲讲怎么使用selenium 这个对象来进行测试。
+*iexplore :  可以是其它浏览器类型，可以在网站上看都支持哪些。
+
+下面我就要讲讲怎么使用`selenium` 这个对象来进行测试。
