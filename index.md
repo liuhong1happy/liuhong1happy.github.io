@@ -5,13 +5,13 @@ tagline: 雕虫在此
 ---
 {% include JB/setup %}
 
-## 关于我
+#### 关于我
 
 我是lrongww，我是一名软件测试工程师，目前掌握的技术有： `Selemiun、java、TestNG` 测试框架等;
 
 目前正处于学习技术的阶段，我要成为一名资深的测试工程师，请相信我！
     
-## 文章列表
+#### 文章列表
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -19,7 +19,7 @@ tagline: 雕虫在此
   {% endfor %}
 </ul>
 
-## 标签列表
+#### 标签列表
 
 <ul class="tag_box inline">
   {% assign tags_list = site.tags %}  
@@ -27,6 +27,6 @@ tagline: 雕虫在此
 </ul>
 
 
-## 联系方式
+#### 联系方式
 
 Email: [373362292@qq.com](mailto:373362292@qq.com)
