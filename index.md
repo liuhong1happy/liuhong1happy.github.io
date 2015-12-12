@@ -5,7 +5,6 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 ---
 {% include JB/setup %}
 
-
 ## 关于我
 
 我是一名热爱前端的软件工程师,熟练使用`HTML5/CSS3`,熟练使用`Angularjs`和`Reactjs`.
@@ -38,13 +37,18 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [腾讯AlloyTeam](http://www.alloyteam.com/)
 - [淘宝UED](http://ued.taobao.org/blog/)
 
-#### 技术站点
+#### 前端技术站点
 
+- [Bootstrap中文网](http://www.bootcss.com/)
 - [ReactJS中文文档](http://reactjs.cn/)
 - [ReactJS英文文档](https://facebook.github.io/react/)
 - [Flux英文文档](http://facebook.github.io/flux/)
 
+#### 后端技术站点
 
+- [Beego官网](http://zh.beego.me/)
+- [Docker官方英文文档](http://docs.docker.com)
+- [Docker官方中文文档](http://dockerdocs.cn)
 
 ## 联系方式
 
