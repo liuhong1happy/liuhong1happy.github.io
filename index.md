@@ -56,5 +56,4 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - Weibo: [刚百](http://weibo.com/u/2186560121)
 - Wechat: [jingxiyunjing](weixin://contacts/profile/jingxiyunjing)
 - Github: [liuhong1happy](https://github.com/liuhong1happy)
-- Telphone: [13648091632](callto://13648091632)
 - QQ: [284362096](http://wpa.qq.com/msgrd?v=3&uin=284362096&site=qq&menu=yes)
