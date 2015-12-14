@@ -4,21 +4,6 @@
 
 ![可爱的小女孩](/assets/images/liuhong1happy.jpg)
 
-## 文章列表
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date: "%Y年%-m月%-d日" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## 标签列表
-
-<ul class="tag_box inline">
-  {% assign tags_list = site.tags %}  
-  {% include JB/tags_list %}
-</ul>
-
 ## 友情链接
 
 #### 国内同行
