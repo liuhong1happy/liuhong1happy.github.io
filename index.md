@@ -49,6 +49,8 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [Beego官网](http://zh.beego.me/)
 - [Docker官方英文文档](http://docs.docker.com)
 - [Docker官方中文文档](http://dockerdocs.cn)
+- [TensorFlow官方英文文档](http://tensorflow.org/)
+- [TensorFlow官方中文](http://wiki.jikexueyuan.com/project/tensorflow-zh/)
 
 ## 联系方式
 
