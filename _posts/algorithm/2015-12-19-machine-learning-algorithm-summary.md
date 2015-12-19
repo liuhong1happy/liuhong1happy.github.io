@@ -102,7 +102,7 @@ tags : [algorithm,machine learning]
 
 ![53ad11cbc336e.jpg](/assets/images/algorithm/53ad11cbc336e.jpg)
 
-`深度学习算法`是对`人工神经网络`的发展。 在近期赢得了很多关注， 特别是 [百度也开始发力深度学习](http://www.ctocio.com/ccnews/15615.html) 后， 更是在国内引起了很多关注。  在计算能力变得日益廉价的今天，深度学习试图建立大得多也复杂得多的神经网络。很多`深度学习的算法`是`半监督式学习算法`，用来处理存在少量未标识数据的大数据集。常见的`深度学习算法`包括：`受限波尔兹曼机（Restricted Boltzmann Machine， RBN）`， `Deep Belief Networks（DBN）`，`卷积网络（Convolutional Network）`, `堆栈式自动编码器（Stacked Auto-encoders）`。 
+`深度学习算法`是对`人工神经网络`的发展。 在近期赢得了很多关注， 特别是 [百度也开始发力深度学习](http://www.ctocio.com/ccnews/15615.html) 后， 更是在国内引起了很多关注。  在计算能力变得日益廉价的今天，深度学习试图建立大得多也复杂得多的神经网络。很多`深度学习的算法`是`半监督式学习算法`，用来处理存在少量未标识数据的大数据集。常见的`深度学习算法`包括：`受限波尔兹曼机（Restricted Boltzmann Machine， RBM）`， `Deep Belief Networks（DBN）`，`卷积网络（Convolutional Network）`, `堆栈式自动编码器（Stacked Auto-encoders）`。 
 
 #### 11.降低维度算法
 
