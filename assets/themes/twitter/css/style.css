@@ -63,14 +63,17 @@ body{
 /* post */
 .content h1,.content h2,.content h3{
     line-height: 50px;
+    color: #ea3e0a;
 }
 
 .content h4,.content h5,.content h6{
     line-height: 40px;
+    color: #ea3e0a;
 }
 .content p,.content ul,.content ol{
     line-height: 30px;
     font-family: Georgia, serif;
+    color: #AD7328;
 }
 
 /* tag_box */
