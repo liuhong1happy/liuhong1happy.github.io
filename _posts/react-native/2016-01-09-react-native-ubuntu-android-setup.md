@@ -326,6 +326,7 @@ ListView由数据源dataSource和每一个Item的显示组件renderRow组成，s
 
 其renderMoview：
 
+{% highlight js %}
 
 renderMovie: function(movie) {
     return (
@@ -342,11 +343,13 @@ renderMovie: function(movie) {
     );
   },
 {% endhighlight %}
+
 #### fetch
 
 当然，有了View还是需要数据滴，我们常常调取数据都是通过Web API的方式去调用。为了方便理解，这次我们采用直接调取远端JSON的方式，同时在组件创建完成过后加载数据。
 
 {% highlight js %}
+
   componentDidMount: function() {
     this.fetchData();
   },
@@ -361,6 +364,7 @@ renderMovie: function(movie) {
       })
       .done();
   },
+  
 {% endhighlight %}
 
 
