@@ -342,8 +342,29 @@ renderMovie: function(movie) {
     );
   },
 {% endhighlight %}
+#### fetch
 
-## final
+当然，有了View还是需要数据滴，我们常常调取数据都是通过Web API的方式去调用。为了方便理解，这次我们采用直接调取远端JSON的方式，同时在组件创建完成过后加载数据。
+
+{% highlight js %}
+  componentDidMount: function() {
+    this.fetchData();
+  },
+  fetchData: function() {
+    fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+          loaded: true,
+        });
+      })
+      .done();
+  },
+{% endhighlight %}
+
+
+#### final
 
 最终代码如下：
 
@@ -468,29 +489,6 @@ AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
 
 就类似与这样的方式，来组织
 
-#### fetch
-
-当然，有了View还是需要数据滴，我们常常调取数据都是通过Web API的方式去调用。为了方便理解，这次我们采用直接调取远端JSON的方式，同时在组件创建完成过后加载数据。
-
-{% highlight js %}
-  componentDidMount: function() {
-    this.fetchData();
-  },
-  fetchData: function() {
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
-          loaded: true,
-        });
-      })
-      .done();
-  },
-{% endhighlight %}
-
-
-
 
 ## 真机运行调试
 
@@ -518,9 +516,15 @@ AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
 
 按安卓手机最左边的那个按键（HOME键旁边）。
 
+![](/assets/images/react-native/F2.png)
+
 选择Dev Settings
 
+![](/assets/images/react-native/DevSettings.png)
+
 选择输入可供调试的server的IP和端口。
+
+![](/assets/images/react-native/IP&Port.png)
 
 点击确定。
 
