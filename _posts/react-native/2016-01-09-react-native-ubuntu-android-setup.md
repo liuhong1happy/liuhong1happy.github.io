@@ -23,10 +23,18 @@ tags : [react,react-native,ubuntun,android]
     - 打包并传apk到AVD
     - 运行Dev Server
     - Reload JS并查看运行结果
-- Demo代码研读[待更新]
-    - index.android.js 中文件代码结构[待更新]
-    - Style与Flex布局[待更新]
-- 创建更加复杂的应用程序[待更新]
+- Demo代码研读
+    - index.android.js文件中代码
+    - Style与Flex布局
+- 创建更加复杂的应用程序
+    - Image
+    - ListView
+    - fetch
+- 真机运行调试
+    - 安装apk
+    - 运行apk
+    - 设置Dev Settings
+    - Reload JS
 
 ## 准备工作
 
@@ -36,33 +44,33 @@ tags : [react,react-native,ubuntun,android]
 
 安装git相当的简单，一句命令就搞定。
 
-        sudo apt-get install git-core
+    sudo apt-get install git-core
         
 #### 安装node和npm
 
 node需要是大于4版本，所以稍稍有点麻烦。
 
-        apt-get install npm
-        npm install -g n
-        n 4.2.1
-        npm install -g npm@3.3.3
+    apt-get install npm
+    npm install -g n
+    n 4.2.1
+    npm install -g npm@3.3.3
         
 如果安装成功，查看其版本
 
-        node -v
-        npm -v
+    node -v
+    npm -v
         
 #### 安装react-native-cli
 
 安装好npm包管理工具，当然，安装react-native-cli也就很容易了。
 
-        npm install -g react-native-cli
+    npm install -g react-native-cli
         
 #### 安装android sdk 并配置android avd
 
 安装Android SDK需要依赖JDK，所以务必先安装JDK。
 
-        sudo apt-get install openjdk-7-jdk
+    sudo apt-get install openjdk-7-jdk
         
 **安装Android SDK**
 
@@ -111,7 +119,7 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 使用react-native-cli自动创建示例代码。
 
-        react-native init TestReactNative
+    react-native init TestReactNative
         
 其目录结果如下
 
@@ -123,13 +131,13 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 创建的示例代码中会有一个`package.json`文件，我们依据`package.json`文件运行npm install，安装所有的依赖包。
 
-        npm install
+    npm install
     
 #### 运行android avd
 
 打开Android AVD面板
 
-        android avd
+    android avd
 
 启动刚才创建的安卓虚拟设备。
 
@@ -137,11 +145,11 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 运行`react-native run-android`打包编译并传送apk到安卓虚拟设备。
 
-#### 运行Dev Server
+#### 运行Node Server
 
-启动Dev Server
+启动Node Server
 
-        react-native start
+    react-native start
 
 #### Reload JS并查看运行结果
 
@@ -151,5 +159,158 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 ![](/assets/images/react-native/WelcomeToReactNative.png)
 
+## Demo代码研读
+
+在安卓虚拟设备运行React Native Demo后，我们来看看项目中的代码结构。
+
+#### index.android.js文件中代码
+
+{% highlight js %}
+
+'use strict';
+
+var React = require('react-native');
+var {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+} = React;
+
+var TestReactNative = React.createClass({
+  render: function() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Shake or press menu button for dev menu
+        </Text>
+      </View>
+    );
+  }
+});
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
+
+{% endhighlight %}
+
+我们可以看出，其代码大致是这样的。
+
+{% highlight js %}
+
+var TestReactNative = React.createClass({
+  render: function() {
+    return (...);
+  }
+});
+
+var styles = StyleSheet.create({...});
+
+AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
+
+{% endhighlight %}
+
+`React.createClass`创建了一个React组件类。
+
+`StyleSheet.create`创建了一个供React组件类使用的样式，该样式类似js中的style。
+
+`AppRegistry.registerComponent`为整个应用注册TestReactNative组件。
+
+
+
+#### Style与Flex布局
+
+我们学习React的相关知识，知道类似的写法。Web端React的style遵循CSS的样式写法，支持浏览器所兼容的样式，其Flex收到浏览器的兼容性限制，使用不是很多。
+
+但是，对于移动端原生Native组件布局类似与Flex布局，所以React Native中原生支持Flex布局写法。
+
+对于Flex布局，记住其是由Flex Box和Flex Item组成就行。
+
+Flex Box规定所有Flex Item所遵循的排布方式（例如行列显示，垂直布局，水平布局等）。
+
+Flex Item可以单独规定其内部样式以及在Flex Box中单独的布局样式。
+
+
+## 创建更加复杂的应用程序
+
+通过了解代码结构，这次我们就开始书写新的代码，以此了解React Native部分组件。
+
+本次要创建的项目是电影列表，一张图片，标题和上演时间。
+
+{% highlight js %}
+
+
+
+{% endhighlight %}
+
+#### Image
+
+#### ListView
+
+#### fetch
+
+## 真机运行调试
+
+如果我们不想安装虚拟机，想采用真机进行运行调试的话，将大大减少开启虚机的时间，也大大解决开发主机的内存消耗。
+
+#### 安装apk
+
+选择要实现真机运行调试的项目。进入项目路径，运行：
+
+    react-native run-android
+    
+通过USB将手机解决电脑，启动USB调试功能，安装apk
+
+    adb install android/app/build/outputs/apk/app-debug.apk
+    
+或者将apk拷入手机中并安装。
+
+#### 运行apk
+
+单击安装好的调试应用以运行应用。
+
+运行Node Server。
+
+#### 设置Dev Settings
+
+按安卓手机最左边的那个按键（HOME键旁边）。
+
+选择Dev Settings
+
+选择输入可供调试的server的IP和端口。
+
+点击确定。
+
+返回应用。
+
+#### Reload JS
+
+仍然是单击左边的按键，选择Reload JS。
+
+这是我们就可以看到运行后的结果。
 
 
