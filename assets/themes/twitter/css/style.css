@@ -70,6 +70,7 @@ body{
 }
 .content p,.content ul,.content ol{
     line-height: 30px;
+    font-family: Georgia, serif;
 }
 
 /* tag_box */
