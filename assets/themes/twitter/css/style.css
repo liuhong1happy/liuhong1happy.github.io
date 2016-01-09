@@ -61,14 +61,14 @@ body{
 }
 
 /* post */
-.post h1,.post h2,.post h3{
+.content h1,.content h2,.content h3{
     line-height: 50px;
 }
 
-.post h4,.post h5,.post h6{
+.content h4,.content h5,.content h6{
     line-height: 40px;
 }
-.post p,.post ul,.post ol{
+.content p,.content ul,.content ol{
     line-height: 30px;
 }
 
