@@ -30,6 +30,7 @@ tags : [react,react-native,ubuntun,android]
     - Image
     - ListView
     - fetch
+    - final
 - 真机运行调试
     - 安装apk
     - 运行apk
@@ -263,15 +264,233 @@ Flex Item可以单独规定其内部样式以及在Flex Box中单独的布局样
 
 {% highlight js %}
 
+var {
+  AppRegistry,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} = React;
 
+var MOCKED_MOVIES_DATA = [
+  {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+];
+
+var TestReactNative = React.createClass({
+  render: function() {
+    var movie = MOCKED_MOVIES_DATA[0];
+    return (
+      <View style={styles.container}>
+        <Text>{movie.title}</Text>
+        <Text>{movie.year}</Text>
+        <Image source={{uri: movie.posters.thumbnail}}  style={styles.thumbnail}/>
+      </View>
+    );
+  }
+});
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  thumbnail: {
+    width: 53,
+    height: 81,
+  },
+});
+
+AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
 
 {% endhighlight %}
 
 #### Image
 
+首先，通过我们之前了解的View、Text等基本控件，加上Image，我们显示单个电影作品的详细信息。
+
+这里，Image控件，需要除了传入style元素外，还需要传入图片的地址内容，即要设定`source`属性。当然，这类似与Web端的src属性。
+
 #### ListView
 
+当然，我们需要显示更多的数据，一条电影作品信息是远远不够的。
+
+这里我们会接下来用到ListView。
+
+{% highlight xml %}
+<ListView dataSource={this.state.dataSource} renderRow={this.renderMovie} style={styles.listView} />
+{% endhighlight %}
+
+ListView由数据源dataSource和每一个Item的显示组件renderRow组成，style规定其样式。
+
+其renderMoview：
+
+
+renderMovie: function(movie) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={{uri: movie.posters.thumbnail}}
+          style={styles.thumbnail}
+        />
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{movie.title}</Text>
+          <Text style={styles.year}>{movie.year}</Text>
+        </View>
+      </View>
+    );
+  },
+{% endhighlight %}
+
+## final
+
+最终代码如下：
+
+{% highlight js %}
+
+'use strict';
+
+var React = require('react-native');
+var {
+  AppRegistry,
+  Image,
+  ListView,
+  StyleSheet,
+  Text,
+  View,
+} = React;
+
+var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
+var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
+var PAGE_SIZE = 25;
+var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
+var REQUEST_URL = API_URL + PARAMS;
+
+var TestReactNative = React.createClass({
+  getInitialState: function() {
+    return {
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
+      loaded: false,
+    };
+  },
+
+  componentDidMount: function() {
+    this.fetchData();
+  },
+
+  fetchData: function() {
+    fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+          loaded: true,
+        });
+      })
+      .done();
+  },
+
+  render: function() {
+    if (!this.state.loaded) {
+      return this.renderLoadingView();
+    }
+
+    return (
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderMovie}
+        style={styles.listView}
+      />
+    );
+  },
+
+  renderLoadingView: function() {
+    return (
+      <View style={styles.container}>
+        <Text>
+          Loading movies...
+        </Text>
+      </View>
+    );
+  },
+
+  renderMovie: function(movie) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={{uri: movie.posters.thumbnail}}
+          style={styles.thumbnail}
+        />
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{movie.title}</Text>
+          <Text style={styles.year}>{movie.year}</Text>
+        </View>
+      </View>
+    );
+  },
+});
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  rightContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  year: {
+    textAlign: 'center',
+  },
+  thumbnail: {
+    width: 53,
+    height: 81,
+  },
+  listView: {
+    paddingTop: 20,
+    backgroundColor: '#F5FCFF',
+  },
+});
+
+AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
+
+{% endhighlight %}
+
+就类似与这样的方式，来组织
+
 #### fetch
+
+当然，有了View还是需要数据滴，我们常常调取数据都是通过Web API的方式去调用。为了方便理解，这次我们采用直接调取远端JSON的方式，同时在组件创建完成过后加载数据。
+
+{% highlight js %}
+  componentDidMount: function() {
+    this.fetchData();
+  },
+  fetchData: function() {
+    fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+          loaded: true,
+        });
+      })
+      .done();
+  },
+{% endhighlight %}
+
+
+
 
 ## 真机运行调试
 
