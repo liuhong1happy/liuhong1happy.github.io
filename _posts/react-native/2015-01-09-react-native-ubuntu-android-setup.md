@@ -145,6 +145,6 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 这个时候就会看到我们整个项目运行的最终结果。
 
-
+![](/assets/images/react-native/WelcomeToReactNative.png)
 
 
