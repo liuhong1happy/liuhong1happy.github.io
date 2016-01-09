@@ -39,9 +39,11 @@ body{
 }
 
 /* posts index */
+
 .post > h3.title {
   position: relative;
-  padding-top: 10px; }
+  padding-top: 10px; 
+}
 
 .post > h3.title span.date {
   position: absolute;
@@ -55,7 +57,20 @@ body{
 /* post-full*/
 .post-full .date {
   margin-bottom: 20px;
-  font-weight: bold; }
+  font-weight: bold; 
+}
+
+/* post */
+.post h1,.post h2,.post h3{
+    line-height: 50px;
+}
+
+.post h4,.post h5,.post h6{
+    line-height: 40px;
+}
+.post p{
+    line-height: 30px;
+}
 
 /* tag_box */
 .tag_box {
