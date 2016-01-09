@@ -68,7 +68,7 @@ body{
 .post h4,.post h5,.post h6{
     line-height: 40px;
 }
-.post p{
+.post p,.post ul,.post ol{
     line-height: 30px;
 }
 
