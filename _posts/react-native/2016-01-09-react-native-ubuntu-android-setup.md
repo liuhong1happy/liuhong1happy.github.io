@@ -23,7 +23,11 @@ tags : [react,react-native,ubuntun,android]
     - 打包并传apk到AVD
     - 运行Dev Server
     - Reload JS并查看运行结果
-    
+- Demo代码研读[待更新]
+    - index.android.js 中文件代码结构[待更新]
+    - Style与Flex布局[待更新]
+- 创建更加复杂的应用程序[待更新]
+
 ## 准备工作
 
 整个就绪工作，其实也不是很难，安装好相应开发环境需要的所有工具（这里就是Node、NPM、Git、react-native-cli和android sdk）。
@@ -146,5 +150,6 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 这个时候就会看到我们整个项目运行的最终结果。
 
 ![](/assets/images/react-native/WelcomeToReactNative.png)
+
 
 
