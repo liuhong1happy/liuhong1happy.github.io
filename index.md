@@ -46,6 +46,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 
 #### 后端技术站点
 
+- [Git中文文档](http://git-scm.com/book/zh/v2)
 - [Beego官网](http://zh.beego.me/)
 - [Docker官方英文文档](http://docs.docker.com)
 - [Docker官方中文文档](http://dockerdocs.cn)

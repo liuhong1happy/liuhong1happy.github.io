@@ -1,6 +1,8 @@
 /* Custom container */
 body{
-    font-family: Arial, "Microsoft YaHei","微软雅黑" ,Helvetica, sans-serif;
+    font-family: font-family: Palatino, Garamond, Times, Georgia, serif;
+/*    font-family: Arial, "Microsoft YaHei","微软雅黑" ,Helvetica, sans-serif;*/
+    font-size: 16px;
 }
 .navbar-default{
     border-radius: 0px;
@@ -26,7 +28,7 @@ body{
 
 .h5,h5,
 .h6, h6{
-    font-size: 14px;
+    font-size: 16px;
 }
 .tag_box{
     padding: 0px;
