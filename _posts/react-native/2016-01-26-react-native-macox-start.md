@@ -3,6 +3,7 @@
     1.安装brew
     2.安装git
     3.brew更换为清华源
+    [清华源](http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew)
     4.brew install npm
     5.更换npm镜像源
     6.下载jdk
