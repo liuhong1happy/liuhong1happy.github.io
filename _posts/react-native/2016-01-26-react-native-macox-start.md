@@ -6,6 +6,8 @@
     [清华源](http://mirrors.tuna.tsinghua.edu.cn/help/#homebrew)
     4.brew install npm
     5.更换npm镜像源
+    编辑 ~/.npmrc 加入下面内容
+    registry = https://registry.npm.taobao.org
     6.下载jdk
     [在Mac OS上配置JDK 1.7](http://blog.csdn.net/anialy/article/details/21195775)
     7.brew install android-sdk
