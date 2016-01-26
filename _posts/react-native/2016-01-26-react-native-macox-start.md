@@ -11,4 +11,5 @@
     8.android sdk配置东软镜像源并安装应该安装的包
     [如何在mac本上安装android sdk](http://www.cnblogs.com/yjmyzz/p/4219829.html)
     9.android avd配置模拟器
-
+    10.安装HAXM
+    [Intel® Hardware Accelerated Execution Manager](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager)
