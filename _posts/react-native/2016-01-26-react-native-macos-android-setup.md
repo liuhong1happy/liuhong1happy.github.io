@@ -82,6 +82,8 @@ tags : [react,react-native,macosx,android]
 
 下载[jdk](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)。点击安装即可！
 
+![JavaJDK](/assets/images/react-native/JavaJDK.png)
+
 ## 安装android sdk
 
     # so easy
@@ -95,11 +97,15 @@ android sdk配置东软镜像源并安装应该安装的包
 
 打开过后，系统界面最上边，Android SDK Manager -> Preferences...
 
+![](/assets/images/react-native/AndroidSDKManager.png)
+
 http proxy server这里填写： mirrors.neusoft.edu.cn
 
 端口填写80，然后把Force https:// 前的勾勾上
     
 mac顶部菜单Tools->Manage Add-on Site
+
+![](/assets/images/react-native/AddOnSite.png)
 
 把下面这堆网址：
 
