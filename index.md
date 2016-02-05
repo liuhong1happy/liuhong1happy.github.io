@@ -64,6 +64,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [Electron 英文网址](http://electron.atom.io/)
 - [Electron 中文文档](https://github.com/atom/electron/tree/master/docs-translations/zh-CN)
 - [Electron 资源列表](https://github.com/sindresorhus/awesome-electron)
+- [Electron 入门博文](https://www.sdk.cn/news/732)
 
 #### 测试技术站点
 
