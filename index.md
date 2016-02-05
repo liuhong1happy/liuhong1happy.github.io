@@ -61,8 +61,9 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 #### 桌面端技术站点
 
 - [Qt 官网](http://www.qt.io/)
-- [atom-shell 官网](http://electron.atom.io/)
-
+- [electron 英文网址](http://electron.atom.io/)
+- [electron 中文文档](https://github.com/atom/electron/tree/master/docs-translations/zh-CN)
+- [electron 资源列表](https://github.com/sindresorhus/awesome-electron)
 
 ## 联系方式
 
