@@ -28,6 +28,16 @@
 - [Docker官方英文文档](http://docs.docker.com)
 - [Docker官方中文文档](http://dockerdocs.cn)
 
+#### 移动端技术站点
+
+- [React Native英文文档](https://facebook.github.io/react-native/)
+- [React Native中文文档](http://reactnative.cn/)
+
+#### 桌面端技术站点
+
+- [Qt 官网](http://www.qt.io/)
+- [atom-shell 官网](http://electron.atom.io/)
+
 ## 联系方式
 
 - Email: [liuhong1.happy@163.com](mailto:liuhong1.happy@163.com)
