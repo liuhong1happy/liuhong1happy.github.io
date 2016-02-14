@@ -4,6 +4,8 @@ category : python
 title: "python简单的HTTP Server"
 tagline: "SimpleHTTPServer"
 tags : [python]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
