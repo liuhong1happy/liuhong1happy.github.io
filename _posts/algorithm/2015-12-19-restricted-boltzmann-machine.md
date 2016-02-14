@@ -4,6 +4,8 @@ category : algorithm
 title: "受限玻尔兹曼机"
 tagline: "Restricted Boltzmann Machine,简称RBM"
 tags : [algorithm,deep learning,RBM]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
