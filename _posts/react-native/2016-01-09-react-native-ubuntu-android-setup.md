@@ -38,6 +38,11 @@ theme :
     - 运行apk
     - 设置Dev Settings
     - Reload JS
+- 发布与部署
+    - 修改app icon
+    - 修改发布配置
+    - 生成可部署apk
+    - 安装到真机并运行
 
 ## 准备工作
 
