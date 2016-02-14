@@ -4,6 +4,8 @@ category : golang
 title: "Ubuntu下安装golang"
 tagline: "学习gloang语言的先决条件"
 tags : [golang]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
