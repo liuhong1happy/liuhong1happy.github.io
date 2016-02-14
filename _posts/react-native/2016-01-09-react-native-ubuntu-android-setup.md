@@ -548,3 +548,75 @@ AppRegistry.registerComponent('TestReactNative', () => TestReactNative);
 这是我们就可以看到运行后的结果。
 
 
+## 发布与部署
+
+前面已经知道怎么编写代码，并能在模拟器或者真机中运行测试。我们现在再来了解下，怎么发布安卓apk。
+
+#### 修改app icon
+
+修改文件 `android/app/src/main/AndroidManifest.xml` 中 application标签里的属性android:icon，例如：`"@mipmap/ic_launcher_2048"`
+
+然后修改文件夹`android/app/src/main/res/`下的所有图标图片，命名为`ic_launcher_2048.png`
+
+#### 修改发布配置
+
+修改文件 `android/app/build.gradle`,参考如下：
+
+    android {
+        compileSdkVersion 23
+        buildToolsVersion "23.0.1"
+    
+        defaultConfig {
+            applicationId "com.reactnative2048"
+            minSdkVersion 16
+            targetSdkVersion 22
+            versionCode 1
+            versionName "1.0"
+            ndk {
+                abiFilters "armeabi-v7a", "x86"
+            }
+        }
+        signingConfigs {
+            release {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+        buildTypes {
+            release {
+                minifyEnabled false  // Set this to true to enable Proguard
+                proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+#### 生成可部署apk
+
+修改package.json文件，加入以下一句scripts：
+
+    "release":"cd android && ./gradlew assembleRelease && ./gradlew installRelease"
+
+    {
+      "name": "ReactNative2048",
+      "version": "0.0.1",
+      "private": true,
+      "scripts": {
+        "start": "node node_modules/react-native/local-cli/cli.js start",
+        "release":"cd android && ./gradlew assembleRelease && ./gradlew installRelease"
+      },
+      "dependencies": {
+        "react-native": "^0.17.0"
+      }
+    }
+
+#### 安装到真机并运行
+
+插入手机，启动usb调试，运行npm run release。
+
+当然，不插入手机，也可将生产的apk传入手机，点击并安装即可！
+
+`注意：生产的apk在android/app/路径下。`
+
