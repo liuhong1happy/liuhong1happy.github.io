@@ -4,6 +4,8 @@ category : react
 title: "React学习历程总结"
 tagline: "经验积累"
 tags : [react]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
