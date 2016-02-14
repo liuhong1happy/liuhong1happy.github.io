@@ -4,6 +4,8 @@ category : algorithm
 title: "机器学习算法汇总"
 tagline: "人工神经网络、深度学习及其它"
 tags : [algorithm,machine learning]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
