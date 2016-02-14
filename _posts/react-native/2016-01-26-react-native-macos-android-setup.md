@@ -4,6 +4,8 @@ category : react-native
 title: "基于ReactNative在Mac OS X环境快速开始Android应用开发"
 tagline: "快速开始RN"
 tags : [react,react-native,macosx,android]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
