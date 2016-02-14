@@ -4,6 +4,8 @@ category : react
 title: "深度剖析：如何实现一个 Virtual DOM 算法"
 tagline: "精辟"
 tags : [react]
+theme:
+  name: twitter
 ---
 {% include JB/setup %}
 
