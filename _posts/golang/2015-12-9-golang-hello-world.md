@@ -4,6 +4,8 @@ category : golang
 title: "golang's Hello World"
 tagline: "最简单的例子"
 tags : [golang]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
