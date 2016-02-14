@@ -4,6 +4,8 @@ category : foreend
 title: "关于单页应用中各路由页数据依赖研究"
 tagline: "不简单的研究"
 tags : [foreend]
+theme :
+  name : twitter
 ---
 {% include JB/setup %}
 
