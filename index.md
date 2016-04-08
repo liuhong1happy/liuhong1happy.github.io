@@ -26,6 +26,16 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
   {% include JB/tags_list %}
 </ul>
 
+## 经典项目
+
+- [全景视频播放器](https://github.com/liuhong1happy/E360Player)
+- [2048游戏](https://github.com/ReactLover/react-native-2048)
+- [自制Dockerfile](https://github.com/Dockerlover/library-docs)
+- [Docker管理工具](https://github.com/liuhong1happy/DockerConsoleApp)
+- [Web模拟Windows7界面](https://github.com/liuhong1happy/ConsoleWindowApp)
+- [Docker官方文档翻译](https://github.com/liuhong1happy/dockerdocs)
+- [Tornado4文档翻译](https://github.com/liuhong1happy/tornado-docs)
+
 ## 友情链接
 
 #### 国内同行
