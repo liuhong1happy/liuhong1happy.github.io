@@ -1,3 +1,15 @@
+---
+layout: post
+category : life
+title: "我在成都的生活方式"
+tagline: "最简单的自己"
+tags : [life]
+theme :
+  name : twitter
+---
+{% include JB/setup %}
+
+
 ## 关于成都
 
 “成都是一座来了就不想走的城市”。
@@ -69,15 +81,39 @@
 1. 经常会问到的问题
 
     a. 从浏览器输入url到返回页面加载完成的过程
-    b. 解决首屏加载卡顿的问题
+    
+        (1). 域名解析
+        (2). 判断缓存
+        (3). 等待服务器响应
+        (4). 加载响应的数据
+        
+    b. 加快页面加载速度的方法
+        
+        (1). 压缩js
+        (2). 合并js/css/小图片/web api请求
+        (3). 延迟加载js
+        (4). 图片预加载
+        (5). 使用CDN加速技术
+        
     c. JS原型链的问题
+        
+        (1). 理解prototype和__proto__的区别和联系
+        (2). 理解contructor和prototype
+        
     d. 屏幕自适应的问题
+    
+        (1). css media
+        (2). 使用判断设备和布局调整
+        
     e. 作用域问题
+        
+        (1). 理解`函数作用域`，`this指针`和`call/apply`
+        
     f. 闭包问题
+        
     g. Array相关函数的问题
-
-
-
-
-
-
+    
+    h. arguments问题
+    
+    i. es6
+    
