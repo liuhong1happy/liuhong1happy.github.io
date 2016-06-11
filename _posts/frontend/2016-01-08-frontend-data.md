@@ -1,9 +1,9 @@
 ---
 layout: post
-category : foreend
+category : frontend
 title: "关于单页应用中各路由页数据依赖研究"
 tagline: "不简单的研究"
-tags : [foreend]
+tags : [frontend]
 theme :
   name : twitter
 ---
@@ -30,7 +30,7 @@ theme :
 
 我们当然希望，所有的页面能在首次访问都能加载所有的数据，但是我们实际开发项目中，有些数据是需要从上一个页面继承的[ 也就是我们所说的`页面依赖数据` ]。
 
-![页面依赖数据](/assets/images/foreend/页面依赖数据.svg)
+![页面依赖数据](/assets/images/frontend/页面依赖数据.svg)
 
 ## 加载依赖页面的数据和自己页面所需的数据
 
@@ -38,4 +38,4 @@ theme :
 
 当页面依赖数据加载完成，再重新刷新页面，让页面重新从Store中拿取数据。
 
-![页面初始化数据分类](/assets/images/foreend/页面初始化数据分类.svg)
+![页面初始化数据分类](/assets/images/frontend/页面初始化数据分类.svg)
