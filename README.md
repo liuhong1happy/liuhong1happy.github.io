@@ -1,8 +1,20 @@
 ## 关于我
 
-我是一名热爱前端的软件工程师,熟练使用`HTML5/CSS3`,熟练使用`Angularjs`和`Reactjs`.
+我是一名热爱前端的软件工程师,熟练使用`HTML5/CSS3`,熟练使用`Angularjs`和`Reactjs`,努力成为JavaScript全栈全端的技术发展方向人才。
 
 ![可爱的小女孩](/assets/images/liuhong1happy.jpg)
+
+## 经典项目
+
+- [全景视频播放器](https://github.com/liuhong1happy/E360Player)
+- [2048游戏](https://github.com/ReactLover/react-native-2048)
+- [富文本编辑器](https://github.com/liuhong1happy/react-umeditor)
+- [自制Dockerfile](https://github.com/Dockerlover/library-docs)
+- [Docker管理工具](https://github.com/liuhong1happy/DockerConsoleApp)
+- [Web模拟Windows7界面](https://github.com/liuhong1happy/ConsoleWindowApp)
+- [Docker官方文档翻译](https://github.com/liuhong1happy/dockerdocs)
+- [Tornado4文档翻译](https://github.com/liuhong1happy/tornado-docs)
+
 
 ## 友情链接
 
@@ -32,6 +44,7 @@
 
 - [React Native英文文档](https://facebook.github.io/react-native/)
 - [React Native中文文档](http://reactnative.cn/)
+- [React Native官方网站](http://reactnative.com)
 
 #### 桌面端技术站点
 

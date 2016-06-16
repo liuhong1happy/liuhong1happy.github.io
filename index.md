@@ -30,6 +30,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 
 - [全景视频播放器](https://github.com/liuhong1happy/E360Player)
 - [2048游戏](https://github.com/ReactLover/react-native-2048)
+- [富文本编辑器](https://github.com/liuhong1happy/react-umeditor)
 - [自制Dockerfile](https://github.com/Dockerlover/library-docs)
 - [Docker管理工具](https://github.com/liuhong1happy/DockerConsoleApp)
 - [Web模拟Windows7界面](https://github.com/liuhong1happy/ConsoleWindowApp)
@@ -67,6 +68,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 
 - [React Native英文文档](https://facebook.github.io/react-native/)
 - [React Native中文文档](http://reactnative.cn/)
+- [React Native官方网站](http://reactnative.com)
 
 #### 桌面端技术站点
 
