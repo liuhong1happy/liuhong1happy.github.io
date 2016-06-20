@@ -50,6 +50,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 
 #### 前端技术站点
 
+- [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
 - [Bootstrap中文网](http://www.bootcss.com/)
 - [ReactJS中文文档](http://reactjs.cn/)
 - [ReactJS英文文档](https://facebook.github.io/react/)
