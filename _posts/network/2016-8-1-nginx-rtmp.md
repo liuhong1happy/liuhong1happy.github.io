@@ -7,11 +7,10 @@ tags : [network,rtmp,nginx]
 ---
 {% include JB/setup %}
 
-参考文章:
+0. 参考文章:
 
   - [OSX安装nginx和rtmp模块（rtmp直播服务器搭建](http://www.cnblogs.com/damiao/p/5231221.html))
   
-
 1. 安装Homebrew，执行命令
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
