@@ -77,7 +77,7 @@ tags : [network,rtmp,nginx]
         rtmp {
             server {
                 listen 1935;
-                application live1 {
+                application rtmplive {
                     live on;
                     record off;
                 }
@@ -105,13 +105,14 @@ tags : [network,rtmp,nginx]
 
 6. 通过ffmepg命令进行推流
 
-        ffmpeg -re -i /Users/Rick/Movies/Demo.mov -vcodec copy -f flv rtmp://localhost:1935/live1/room1
+        ffmpeg -re -i /Users/liuhong/Movies/Demo.mov -vcodec copy -f flv rtmp://localhost:1935/rtmplive/home
+        ffmpeg -re -i /Users/liuhong/Movies/Test.mp4 -vcodec libx264 -acodec aac -f flv rtmp://localhost:1935/rtmplive/home
 
     这个room1是可以随便定义的，只要live1和上面nginx.conf里面配置的一样就行
 
     然后电脑上打开vlc这个播放器软件  点击File---->Open Network 在弹出来的框中选择Network然后输入URL:
 
-        rtmp://localhost:1935/live1/room1
+        rtmp://localhost:1935/rtmplive/home
 
     这样就能看到通过ffmpeg推过来的视频了
 
