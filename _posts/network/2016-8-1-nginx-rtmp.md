@@ -121,14 +121,14 @@ tags : [network,rtmp,nginx]
   
 7. http方式访问视频流
 
-HTTP Live Streaming（缩写是 HLS）是一个由苹果公司提出的基于HTTP的流媒体网络传输协议。是苹果公司QuickTime X和iPhone软件系统的一部分。它的工作原理是把整个流分成一个个小的基于HTTP的文件来下载，每次只下载一些。当媒体流正在播放时，客户端可以选择从许多不同的备用源中以不同的速率下载同样的资源，允许流媒体会话适应不同的数据速率。在开始一个流媒体会话时，客户端会下载一个包含元数据的extended M3U (m3u8) playlist文件，用于寻找可用的媒体流。
+    HTTP Live Streaming（缩写是 HLS）是一个由苹果公司提出的基于HTTP的流媒体网络传输协议。是苹果公司QuickTime X和iPhone软件系统的一部分。它的工作原理是把整个流分成一个个小的基于HTTP的文件来下载，每次只下载一些。当媒体流正在播放时，客户端可以选择从许多不同的备用源中以不同的速率下载同样的资源，允许流媒体会话适应不同的数据速率。在开始一个流媒体会话时，客户端会下载一个包含元数据的extended M3U (m3u8) playlist文件，用于寻找可用的媒体流。
 
-HLS只请求基本的HTTP报文，与实时传输协议（RTP)不同，HLS可以穿过任何允许HTTP数据通过的防火墙或者代理服务器。它也很容易使用内容分发网络来传输媒体流。
+    HLS只请求基本的HTTP报文，与实时传输协议（RTP)不同，HLS可以穿过任何允许HTTP数据通过的防火墙或者代理服务器。它也很容易使用内容分发网络来传输媒体流。
 
-此协议详细内容请参考apple官方网站：[https://developer.apple.com/resources/http-streaming/](https://developer.apple.com/resources/http-streaming/)
+    此协议详细内容请参考apple官方网站：[https://developer.apple.com/resources/http-streaming/](https://developer.apple.com/resources/http-streaming/)
 
 
-nginx-rtmp-module针对rtmp直播流实时转换为hls直播流的基本细节:`rtmp直播流会被动态切分为ts片段和一个不断刷新的u3m8文件`。
+    nginx-rtmp-module针对rtmp直播流实时转换为hls直播流的基本细节:`rtmp直播流会被动态切分为ts片段和一个不断刷新的u3m8文件`。
 
 8. hls方式推流的nginx配置
 
