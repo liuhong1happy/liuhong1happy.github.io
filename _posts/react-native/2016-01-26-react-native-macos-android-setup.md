@@ -169,7 +169,7 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 目录下有个文件叫做`index.android.js`，这就是整个RN工程的入口，待会儿详细讲解代码。
 
-#### 安装NPM包
+#### 安装NPM包(目前RNC会自动安装)
 
 创建的示例代码中会有一个`package.json`文件，我们依据`package.json`文件运行npm install，安装所有的依赖包。
 
@@ -211,13 +211,13 @@ Android AVD面板上单击`create`，开始创建安卓虚拟设备。
 
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-} = React;
+} = require('react-native');
 
 var TestReactNative = React.createClass({
   render: function() {
@@ -304,14 +304,14 @@ Flex Item可以单独规定其内部样式以及在Flex Box中单独的布局样
 本次要创建的项目是电影列表，一张图片，标题和上演时间。
 
 {% highlight js %}
-
+var React = require('react');
 var {
   AppRegistry,
   Image,
   StyleSheet,
   Text,
   View,
-} = React;
+} = require('react-native');
 
 var MOCKED_MOVIES_DATA = [
   {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
@@ -417,7 +417,7 @@ renderMovie: function(movie) {
 
 'use strict';
 
-var React = require('react-native');
+var React = require('react')
 var {
   AppRegistry,
   Image,
@@ -425,7 +425,7 @@ var {
   StyleSheet,
   Text,
   View,
-} = React;
+} =  require('react-native');
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
