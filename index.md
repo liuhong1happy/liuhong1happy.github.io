@@ -28,25 +28,17 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 
 ## 经典项目
 
-- [全景视频播放器](https://github.com/liuhong1happy/E360Player)
-- [2048游戏](https://github.com/ReactLover/react-native-2048)
-- [富文本编辑器](https://github.com/liuhong1happy/react-umeditor)
-- [自制Dockerfile](https://github.com/Dockerlover/library-docs)
-- [Docker管理工具](https://github.com/liuhong1happy/DockerConsoleApp)
-- [Web模拟Windows7界面](https://github.com/liuhong1happy/ConsoleWindowApp)
-- [Docker官方文档翻译](https://github.com/liuhong1happy/dockerdocs)
-- [Tornado4文档翻译](https://github.com/liuhong1happy/tornado-docs)
+| [E360Player](https://github.com/liuhong1happy/E360Player)      |  [react-native-2048](https://github.com/ReactLover/react-native-2048) |   [react-umeditor](https://github.com/liuhong1happy/react-umeditor)   |
+| :-------- | --------:| :------: |
+| [react-raphael](https://github.com/liuhong1happy/react-raphael)    |   [react-native-wallpaper-manager](https://github.com/liuhong1happy/react-native-wallpaper-manager) |  [similar-react-router](https://github.com/liuhong1happy/similar-react-router)  |
 
 ## 友情链接
 
 #### 国内同行
 
-- [阿里U一点](http://www.aliued.cn/)
-- [新浪UED](http://ued.sina.com.cn/)
-- [百度FEX](http://fex.baidu.com/)
-- [腾讯网前端团队](http://qqfe.org/)
-- [腾讯AlloyTeam](http://www.alloyteam.com/)
-- [淘宝UED](http://ued.taobao.org/blog/)
+| [阿里U一点](http://www.aliued.cn/) | [新浪UED](http://ued.sina.com.cn/) | [百度FEX](http://fex.baidu.com/) |
+| :-------- | --------:| :------: |
+| [腾讯网前端团队](http://qqfe.org/) | [腾讯AlloyTeam](http://www.alloyteam.com/) | [淘宝UED](http://ued.taobao.org/blog/) |
 
 #### 前端技术站点
 
@@ -78,6 +70,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [Electron 中文文档](https://github.com/atom/electron/tree/master/docs-translations/zh-CN)
 - [Electron 资源列表](https://github.com/sindresorhus/awesome-electron)
 - [Electron 入门博文](https://www.sdk.cn/news/732)
+- [CefSharp文档](https://github.com/cefsharp/CefSharp/wiki)
 
 #### 测试技术站点
 
