@@ -1,6 +1,6 @@
 ## 关于我
 
-我是一名热爱前端的软件工程师,熟练使用`HTML5/CSS3`,熟练使用`Angularjs`和`Reactjs`,努力成为JavaScript全栈全端的技术发展方向人才。
+我是一名热爱前端的软件工程师,熟练使用`HTML5/CSS3`,熟练使用`Reactjs`,努力成为JavaScript全栈全端的技术发展方向人才。
 
 ![可爱的小女孩](/assets/images/liuhong1happy.jpg)
 
@@ -22,39 +22,36 @@
 #### 前端技术站点
 
 - [Bootstrap中文网](http://www.bootcss.com/)
-- [ReactJS中文文档](http://reactjs.cn/)
 - [ReactJS英文文档](https://facebook.github.io/react/)
-- [Flux英文文档](http://facebook.github.io/flux/)
+- [Ant Design](https://ant.design/)
 - [前端 TOP 100](https://www.awesomes.cn/rank)
 
-#### 后端技术站点
+#### 服务端技术站点
 
 - [Git中文文档](http://git-scm.com/book/zh/v2)
 - [Beego官网](http://zh.beego.me/)
 - [Docker官方英文文档](http://docs.docker.com)
-- [Docker官方中文文档](http://dockerdocs.cn)
 - [TensorFlow官方英文文档](http://tensorflow.org/)
 - [TensorFlow官方中文](http://wiki.jikexueyuan.com/project/tensorflow-zh/)
+- [Protobuf项目地址](https://github.com/protocolbuffers/protobuf)
+- [Protobuf英文文档](https://developers.google.com/protocol-buffers/)
 
 #### 移动端技术站点
 
 - [React Native英文文档](https://facebook.github.io/react-native/)
 - [React Native中文文档](http://reactnative.cn/)
-- [React Native官方网站](http://reactnative.com)
+- [Flutter英文文档](https://flutter.io/docs)
+- [Flutter中文社区](https://flutter-io.cn/)
 
 #### 桌面端技术站点
 
 - [Qt 官网](http://www.qt.io/)
-- [Electron 英文网址](http://electron.atom.io/)
-- [Electron 中文文档](https://github.com/atom/electron/tree/master/docs-translations/zh-CN)
+- [Electron 英文网址](https://electronjs.org/)
 - [Electron 资源列表](https://github.com/sindresorhus/awesome-electron)
-- [Electron 入门博文](https://www.sdk.cn/news/732)
 - [CefSharp文档](https://github.com/cefsharp/CefSharp/wiki)
 
 ## 联系方式
 
 - Email: [liuhong1.happy@163.com](mailto:liuhong1.happy@163.com)
-- Weibo: [刚百](http://weibo.com/u/2186560121)
 - Wechat: [jingxiyunjing](weixin://contacts/profile/jingxiyunjing)
 - Github: [liuhong1happy](https://github.com/liuhong1happy)
-- QQ: [284362096](http://wpa.qq.com/msgrd?v=3&uin=284362096&site=qq&menu=yes)
