@@ -142,7 +142,9 @@ theme :
 
     相邻两个盒子之间的垂直的间距是被margin属性所决定的，在一个块级排版上下文中相邻的两个块级盒之间的垂直margin是折叠的
 
-    BFC(Block Formatting Context)是Web页面中盒模型布局的CSS渲染模式。它的定位体系属于常规文档流。摘自W3C：浮动，绝对定位元素，inline-blocks, table-cells, table-captions,和overflow的值不为visible的元素，（除了这个值已经被传到了视口的时候）将创建一个新的块级格式化上下文。上面的引述几乎总结了一个BFC是怎样形成的。但是让我们以另一种方式来重新定义以便能更好的去理解。
+    BFC(Block Formatting Context)是Web页面中盒模型布局的CSS渲染模式。它的定位体系属于常规文档流。摘自W3C：浮动，绝对定位元素，inline-blocks, table-cells, table-captions,和overflow的值不为visible的元素，（除了这个值已经被传到了视口的时候）将创建一个新的块级格式化上下文。
+    
+    上面的引述几乎总结了一个BFC是怎样形成的。但是让我们以另一种方式来重新定义以便能更好的去理解。
 
     BFC有一下特性：
 
@@ -157,3 +159,37 @@ theme :
     BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。
 
     计算BFC的高度时，浮动元素也参与计算。
+
+16. 简述ES6
+
+    ES6狭义为ES2015，广义为下一代javascript。包含语法修改和类型或方法扩展。
+
+    - 语法修改
+        - let、const 块级作用域限定，防止变量提升，导致暂时性死区，不允许重复声明，const必须在声明时赋值。
+        - 变量解构赋值 包括对象、数组、字符串、数字、布尔的解构赋值，undefined和null不能解构赋值
+        - 模板字符串 \`123\`="123"
+        - 标签模板 alert\`123\`=alert("123")
+        - 函数扩展 参数解构、参数默认值、函数的 length 属性、参数作用域、rest 参数、函数的name属性、函数内部不能定义严格模式、尾调用优化
+        - unicode表示方式 `\u{20BB7}`或者`\u0061`
+        - 语调符号和重音符号的两种表示方式，比如 `O`（`\u004F`）和 `ˇ`（`\u030C`）合成 `Ǒ`（`\u004F\u030C`）
+        - 迭代器Iterator与for of语句
+        - 生成器Generator 
+        - 装饰器
+    - 类型的方法扩展
+        - String方法扩展 `codePointAt`、`fromCodePoint`、`normalize`、`includes`、`startsWith`、`startsWith`、`repeat`、`padStart`、`padEnd`、`matchAll`、`raw`
+        - RegExp扩展 `u`修饰符匹配unicode，`y`修饰符为“粘连”（sticky）修饰符，`s`修饰符，`.`可匹配所有字符，包括换行符。支持匹配`后行断言`、`\p\P`Unicode属性字符、具名组匹配及其引用`\k`
+        - Number方法扩展 `isFinite`、`isNaN`、`isInteger`、`parseInt`、`parseFloat`、`isSafeInteger`
+        - Math方法扩展 `trunc`、`sign`、`cbrt`、`clz32`、`imul`、`fround`、`hypot`、`expm1`、`log1p`、`log10`、`log2`、`sinh`、`cosh`、`tanh`、`asinh`、`acosh`、`atanh`
+        - Array方法扩展 `from`、`of`、`copyWithin`、`fill`、`flat`、`flatMap`
+        - Object方法扩展 `is`、`assign`、`getOwnPropertyDescriptors`、`setPrototypeOf`、`getPrototypeOf`、`fromEntries`、`getOwnPropertySymbols`
+    - 数据类型、数据结构扩展
+        - Symbol类型  
+        - Set和Map类型 WeakSet和WeakMap防止内存释放
+        - Proxy类型
+        - Promise类型
+        - ArrayBuffer类型
+    - 运算符扩展
+        - 指数运算符 `**`
+        - 三点运算符 `...`
+        - `::`绑定语法 代替bind、apply、call
+        - 箭头函数 ()=>{} 不能new、没有arguments、内部不能使用yield、this指向的不是函数自身
