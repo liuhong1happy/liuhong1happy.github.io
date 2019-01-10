@@ -83,6 +83,8 @@ theme :
     3. Object去重法
     4. Set去重法
 7. 说明冒泡排序、插入排序实现的思想、步骤、每趟的结果等
+    插入排序的思想：将数字插入到已排好序的队列中，直到所有数值排好序。
+    冒泡排序的思想：队列中的数值两两比较，谁大放后面，一轮下来后最大的会被排在后面。
 8. 什么是二分查找
 9. http 协议
 
@@ -103,11 +105,11 @@ theme :
         5. | 标示前后字符串选其一
         6. ()可以单独匹配项
 
-    例如：
+    例如：
 
         1. 匹配电话号码
 
-            /^((0\d{2,3}-\d{7,8})|(1[34578]\d{9}))$/
+            /^((0\d{2,3}-\d{7,8})|(1[345789]\d{9}))$/
 
         2. 验证邮箱
 
@@ -134,7 +136,11 @@ theme :
 
 13. 如何设置一个元素不可见( 我说了3种方法，但是面试官说是4种╮(╯▽╰)╭ )
 
-    高宽为0 opacity为0 display:none position:fixed
+    高宽为0 // 高宽为0
+    opacity为0 // 透明度为0
+    display:none // 不可见
+    position:fixed // 出界
+    z-index:-1 // 堆栈布局底部
 
 14. 说一下Vue的生命周期、特点，项目中为什么会选用vue而不用其他
 
@@ -193,3 +199,66 @@ theme :
         - 三点运算符 `...`
         - `::`绑定语法 代替bind、apply、call
         - 箭头函数 ()=>{} 不能new、没有arguments、内部不能使用yield、this指向的不是函数自身
+
+17. 怎么理解ESLint
+    - How？ ESLint配置主要由 解析器(parser)、解析器配置(parserOptions)、语法规则(rules)、运行环境(env)、全局变量(global)
+    - What？ ESLint是对js语法规则进行校验得工具，默认为对ES5语法得校验。
+    - Where? ESLint配置放置位置，主要有两种方式，一种是文件配置(例如.eslintrc.json、package.json)、一种是文件内注释配置(/* eslint-env node, mocha */)
+    - When? ESLint需要在书写代码或者提交代码时进行代码语法检测。
+
+18. 移动前端自适应适配布局解决方案
+
+    方案：
+
+        固定一个某些宽度，使用一个模式，加上少许的媒体查询方案
+        使用flexbox解决方案
+        使用百分比加媒体查询
+        使用rem
+
+19. bind、apply、call的区别
+
+    bind是绑定函数的作用域this
+    apply和call类似，是绑定作用域this然后执行，调用方式不通（`apply(thisObj,argArr)`和`call(thisObj,arg1,arg2,arg3,……)`）
+
+20. 解释什么是柯里化函数
+
+21. React Hooks
+
+    React函数式组件，以前叫做`无状态组件`,只能接受props更改组件状态。现在React加入了钩子函数，改变`无状态组件`也能使用`state`和`setState`来实现内部状态管理，以及给`无状态组件`加入`componentDidMount`和`componentDidUpdate`等生命周期函数。
+
+    ```jsx
+    import { useState, useEffect } from 'react';
+
+    function Example() {
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+            document.title = `You clicked ${count} times`;
+        });
+
+        return (
+            <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
+            </div>
+        );
+    }
+    ```
+
+22. React Diff算法
+
+首先，React采用虚拟dom来模拟虚拟的节点，这个虚拟节点比真实dom更加高效，不用一出生就带有很多标签。
+
+整个diff算法，首先是对做了更改的节点进行标记，接着是同层级比较，新的元素将会新增，原有元素进行修改，不再有的元素标记回收。
+
+比较原则当然是react分配的key值，或者我们手动设置的key值。
+
+23. umi和dva、roadhog 是什么关系
+
+roadhog 是基于 webpack 的封装工具，目的是简化 webpack 的配置
+
+umi 可以简单地理解为 roadhog + 路由，思路类似 next.js/nuxt.js，辅以一套插件机制，目的是通过框架的方式简化 React 开发
+
+dva 目前是纯粹的数据流，和 umi 以及 roadhog 之间并没有相互的依赖关系，可以分开使用也可以一起使用，个人觉得 umi + dva 是比较搭的
