@@ -262,3 +262,90 @@ roadhog 是基于 webpack 的封装工具，目的是简化 webpack 的配置
 umi 可以简单地理解为 roadhog + 路由，思路类似 next.js/nuxt.js，辅以一套插件机制，目的是通过框架的方式简化 React 开发
 
 dva 目前是纯粹的数据流，和 umi 以及 roadhog 之间并没有相互的依赖关系，可以分开使用也可以一起使用，个人觉得 umi + dva 是比较搭的
+
+24. 常见的web前端性能优化的方法总结:
+
+性能优化主要包括DOM、网络的优化
+
+- DOM的优化 - 原则是减少DOM获取和渲染的频率，合理利用浏览器有限的资源，防止页面假死
+
+    1. 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作
+    2. 用innerHTML代替DOM操作,减少DOM操作次数,优化javascript性能;
+    3. 当需要设置的样式很多时,设置className而不是直接操作style
+    4. 最大化浏览器性能，使用Web Worker来利用Web的多线程，防止主线程假死
+    5. 优化数据结构， Redux 采用Immutale这种不可变对象，来对数据结构优化，减少过多的render
+    6. 需要定时做某件事情的时候，使用requestAnimationFrame
+
+- 网络优化 - 减少请求数，压缩传输文件大小，预先加载，按需加载
+
+    1. 减少http请求次数:CSS Sprites,JS、CSS源码压缩,控制图片大小;网页启用Gzip压缩,CDN托管,data缓存,图片服务器。
+    2. 图片预加载,将样式表放在顶部,将脚本放置与底部加上时间戳
+    3. 前端模板JS+数据,减少由于HTML标签导致的带宽浪费,前端使用变量保存ajax请求结果,每次操作本地变量,减少请求次数
+
+25. requestAnimationFrame的特点
+
+    requestAnimationFrame会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率
+
+    在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的CPU、GPU和内存使用量
+
+    requestAnimationFrame是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销
+
+26. 页面假死的原因
+
+    页面大致分为 JS线程 GUI Render线程，事件触发线程。JS线程执行DOM操作本身比较耗时，这个过程会挂起GUI Render线程和事件触发线程，所以这个时候用户点击鼠标，敲打键盘都没有反应。
+
+    等待JS线程执行完成后，需要更新一次GUI Render线程，才接着响应下一帧的事件或者setTimeout执行函数
+    
+27. CSS3 常用样式总结
+
+    圆角(border-radius)、阴影（box-shadow）、位移(translate)和动画(transition、animation)
+    文本（阴影text-shadow、折行word-wrap）、字体(@font-face)
+
+28. 匹配连续两个相同字母或者数字
+
+    `/([0-9a-zA-Z])\1+/`
+
+    `[0-9a-zA-Z]` 匹配到字母或者数字
+    `()` 会匹配到分组
+    `\1` 表示上一个匹配到的分组
+    `+` 表示一个以上的字符
+
+29. js的基本数据类型有哪些？
+
+    ECMAScript中有5中简单数据类型（也称为基本数据类型）: Undefined、Null、Boolean、Number和String。还有1中复杂的数据类型————Object，Object本质上是由一组无序的名值对组成的。
+
+    其中Undefined、Null、Boolean、Number都属于基本类型。Object、Array和Function则属于引用类型，String有些特殊。
+
+30. 区分数组Array和对象Object的几种方法？
+
+    Array.prototype.isPrototypeOf(obj) //true表示是数组，false不是数组
+    
+    obj instanceof Array
+
+    Array.isArray(obj);
+
+    Object.prototype.toString.call(array)
+
+    obj.constructor == Array
+
+31. Electron main和render线程之间通信的方法
+
+    1. ipc模式 main和render线程事件监听和调用
+        ipcMain.on(channel, listener)
+        ipcRenderer.on(channel, listener)
+        ipcRenderer.send(channel, arg)
+    2. remote
+    3. webContents.executeJavaScript
+32. RN 首屏渲染
+33. css选择器优先级
+
+    内联样式>id选择器>类和伪类选择器>元素选择器
+
+34. React.PureComponent和React高阶组件
+35. 懒加载的原理和实现
+
+    定义：用户滚到特定位置才加载。
+    原理：利用滚动事件以及getBoundingClientRect
+    实现：滚动事件实时获取位置，比较getBoundingClientRect获取的位置信息进行比较
+    
+36. AMD、CMD和Common.js区别
