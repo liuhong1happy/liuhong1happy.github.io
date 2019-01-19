@@ -349,3 +349,367 @@ dva 目前是纯粹的数据流，和 umi 以及 roadhog 之间并没有相互�
     实现：滚动事件实时获取位置，比较getBoundingClientRect获取的位置信息进行比较
     
 36. AMD、CMD和Common.js区别
+
+37. Curring函数
+
+    ```js
+    var Curring = function(fn) {
+        var args = [];
+        return function() {
+            if(arguments.length===0) {
+                return fn.apply(this, args)
+            }
+            [].push.apply(args, arguments)
+            return arguments.callee;
+        }
+    }
+    var sum = function() {
+        var result = 0;
+        for(var i=0;i<arguments.length;i++) {
+            result += arguments[i];
+        }
+        return result;
+    }
+    ```
+
+38. setTimeout、setInterval、requestAnimationFrame代码先后执行顺序
+    ```js
+    requestAnimationFrame(function(){ 
+        console.log("requestAnimationFrame");
+    })
+    var intervalInt = setInterval(function(){ 
+        console.log("setInterval");
+        clearInterval(intervalInt);
+    });
+    setTimeout(function(){ console.log("setTimeout") }); 
+    ```
+
+
+39. React Diff算法以及React setState发生的一系列过程
+
+40. this是怎么什么时候被绑定的
+
+41. 怎么理解vue的双向绑定，如果是你你会怎么实现？
+
+42. 深拷贝与浅拷贝，以及vue是怎么避免深拷贝的？
+
+    浅拷贝：1. for in语句 2. Object.assign
+    深拷贝：
+    1. 递归拷贝
+    ```js
+    function deepClone(initalObj, finalObj) {    
+        var obj = finalObj || {};    
+        for (var i in initalObj) {        
+            if (typeof initalObj[i] === 'object') {
+                obj[i] = (initalObj[i].constructor === Array) ? [] : {};            
+                arguments.callee(initalObj[i], obj[i]);
+            } else {
+                obj[i] = initalObj[i];
+            }
+        }    
+        return obj;
+    }
+    var str = {};
+    var obj = { a: {a: "hello", b: 21} };
+    deepClone(obj, str);
+    console.log(str.a);
+    ```
+    2. Object.create() // 说白了是利用原型链
+
+
+43. 原型、构造函数和实例之间的关系
+
+    ```js
+    var obj = {}; // 创建一个对象
+    obj.__proto__ === Object.prototype // 实例和原型
+    obj.__proto__.constructor === Object // 构造函数
+    ```
+    
+    注意：
+
+        1. 函数定义的时候，就已经创建了原型prototype,其中构造函数constructor指向了函数本身。
+        2. new操作符，首先创建一个新的对象，将构造函数的作用域（this）赋给新的对象，然后执行构造函数，返回对象。
+
+44. 继承
+
+    原理一：原型链
+    ```js
+    var Animal = function(){}
+    Animal.prototype.move = function(){
+        console.log("move")
+    } 
+    var Dog = function(){}
+    Dog.prototype = new Animal(); // 子类原型指向父类的实例
+    var dog = new Dog();
+    dog.move();
+    ```
+    原理二：借用构造函数
+    ```js
+    var Animal = function() {
+        this.move = function() {
+            console.log("move")
+        } // 注意，这里必须在构造函数中定义变量和方法，不能复用函数
+    }
+    var Dog = function() {
+        Animal.call(this); // 通过子类构造函数中调用父类构造函数（重新指向了this）
+    }
+    var dog = new Dog();
+    dog.move();
+    ```
+    方法一：组合继承
+    ```js
+    var Animal = function() {
+        this.name = "Animal"
+    }
+    Animal.prototype.sayName = function() { console.log(this.name)}
+    var Dog = function() {
+        Animal.call(this);  // 借用构造函数
+    }
+    Dog.prototype = new Animal(); // 原型链指向父类
+    Dog.prototype.constructor = Dog; // 构造函数指向子类
+    ``` 
+    原理三：原型式继承(浅拷贝)
+    ```js
+    function object(o) {
+        function F();
+        F.prototype = o;
+        return new F();
+    }
+    var obj = { foo: 1, bar : 2 }
+    var cloneObj = object(o); // 以上等价于 var cloneObj = Object.create(obj);
+    console.log(cloneObj.foo)
+    ```
+    原理四：寄生式继承
+    ```js
+    function createProperty(o) {
+        var clone = object(o);
+        clone.printFoo = function() {
+            console.log(this.foo);
+        }
+        return clone;
+    }
+    var newObj = createProperty(obj);
+    newObj.printFoo();
+    ```
+    方法二：寄生组合式继承
+    ```js
+    function inheritPrototype(Dog, Animal) {
+        var prototype = Object(Animal.prototype); // 父类prototype先做一次拷贝
+        prototype.constructor = Dog;
+        Dog.protoype = prototype;
+    }
+
+    var Animal = function() {
+        this.name = "Animal"
+    }
+    Animal.prototype.sayName = function() { console.log(this.name)}
+    var Dog = function() {
+        Animal.call(this);  // 借用构造函数
+    }
+    inheritPrototype(Dog, Animal);
+    var dog = new Dog();
+    dog.sayName();
+    ```
+
+45. Object.assign和Object.create内部实现
+
+    ```js
+    Object.prototype.assign = function (target) { 
+        for (var i = 1; i < arguments.length; i++) { 
+            var source = arguments[i]; 
+            for (var key in source) { 
+                if (Object.prototype.hasOwnProperty.call(source, key)) { 
+                    target[key] = source[key]; 
+                } 
+            } 
+        } 
+        return target; 
+    };
+    Object.prototype.create = function(o) {
+        function F() {};
+        F.prototype = o;
+        return new F();
+    }
+    ```
+
+46. 怎么判断一个变量是undefined或者null
+
+        target == null // 记住这里是两个等号
+
+47. 斐波拉契数
+
+    ```js
+    var Fabonacci = function(n) {
+        if(n===1 || n===2) return 1;
+        return arguments.callee(n-1) + arguments.callee(n-2);
+    }
+    ```
+
+48. 排序
+
+    插入排序
+    ```js 
+    var array = [112, 33, 21, 90, 1, -20, 78];
+    for(var i=1;i<array.length;i++) {
+        for(var j=i;j>0 && array[j-1]>=array[j];j--) {
+            var tmp = array[j-1];
+            array[j-1] = array[j];
+            array[j] = tmp;
+        }
+    }
+    console.log(array);
+    ```
+    冒泡排序
+    ```js 
+    var array = [112, 33, 21, 90, 1, -20, 78];
+    for(var i=0;i<array.length-1;i++) {
+        for(var j=1;j<array.length-i;j++) {
+            if(array[j]<array[j-1]) {
+                var tmp = array[j-1];
+                array[j-1] = array[j];
+                array[j] = tmp;
+            }
+        }
+    }
+    console.log(array);
+    ```
+    快速排序
+    ```js
+    var array = [112, 33, 21, 90, 1, -20, 78];
+    var quickSort = function(array, left, right) {
+       if(left<right) {
+           var baseIndex = division(array, left, right); // 找到基准值的中间位置
+           quickSort(array, left, baseIndex-1); // 基准值左边的数继续排序
+           quickSort(array, baseIndex+1, right); // 基准值右边的数继续排序
+       }
+    }
+    var division = function(array, left, right) {
+        let base = array[left];
+        while(left<right) {
+            while(base<=array[right] && left<right) right--; // 右边找到第一个比基准值小的数
+            array[left] = array[right]; // 让其和最左边的数交换
+            while(base>=array[left] && left<right) left++; // 左边继续找到第一个比基准值大的数
+            array[right] = array[left]; // 让其和最右边的数交换
+        }
+        array[left] = base; // left和right相等的时候，就表示找到了基准值的位置
+        return left; // 将基准值的下标返回
+    }
+    quickSort(array, 0, array.length-1);
+    console.log(array);
+    ```
+    二分查找
+    ```js
+    var binarySearch = function(array, searchValue) {
+        var low = 0;
+        var high = array.length -1;
+        while(low<high) {
+            var n_2 = Math.floor((high+low)/2, 10);
+            var base = array[n_2];
+            if(base===searchValue) return n_2;
+            else if(base<searchValue) low = n_2;
+            else high = n_2;
+        }
+        return -1;
+    }
+    var findIndex = binarySearch([1,2,3,4,5,6,9,12,22,33,44,55], 44);
+    console.log(findIndex);
+    ```
+
+49. 将普通数值，格式化为金钱格式
+
+    ```js
+    var val='212312.235423'
+    var rex = /\d{1,3}(?=(\d{3})+$)/g;
+    val.replace(/^(-?)(\d+)((\.\d+)?)$/, function (s, s1, s2, s3) {
+         return '$' + s1 + s2.replace(rex, '$&,') + s3;
+         // '$' + s1 + s2.replace(/\B(?=(?:\d{3})+(?!\d))/g,",")+ s3;
+    })
+    ```
+
+50. 正则表达式中?=和?:和?!的理解
+
+    要理解?=和?!，首先需要理解前瞻，后顾，负前瞻，负后顾四个概念：
+
+        前瞻：
+        exp1(?=exp2) 查找exp2前面的exp1
+        后顾：
+        (?<=exp2)exp1 查找exp2后面的exp1
+        负前瞻：
+        exp1(?!exp2) 查找后面不是exp2的exp1
+        负后顾：
+        (?<!=exp2)exp1 查找前面不是exp2的exp1
+    
+    举例：
+
+        "中国人".replace(/(?<=中国)人/, "rr") // 匹配中国人中的人，将其替换为rr，结果为 中国rr
+        "法国人".replace(/(?<=中国)人/, "rr") // 结果为 法国人，因为人前面不是中国，所以无法匹配到
+
+    要理解?:则需要理解捕获分组和非捕获分组的概念：
+
+        ()表示捕获分组，()会把每个分组里的匹配的值保存起来，使用$n(n是一个数字，表示第n个捕获组的内容)
+        (?:)表示非捕获分组，和捕获分组唯一的区别在于，非捕获分组匹配的值不会保存起来
+
+    举例：
+
+        // 数字格式化 1,123,000
+        "1234567890".replace(/\B(?=(?:\d{3})+(?!\d))/g,",") // 结果：1,234,567,890，匹配的是后面是3*n个数字的非单词边界(\B)
+
+51. JavaScript 的正则表达式中的 \b 以及 \B 问题？
+
+52. 实现一个Watcher类
+    ```js
+    class Watcher {
+        constructor(data) {
+            // your code
+            const that = this;
+            for(let key in data) {
+                (function(data, key, value){
+                    Object.defineProperty(that, key, {
+                        configurable: true,
+                        enumerable: true,
+                        get: () => that._data[key],
+                        set: (newValue) => {
+                            if(that._data[key]!==newValue) {
+                                that.$emit(key, newValue)
+                            }
+                        }
+                    })
+                })(data, key , data[key])
+            }
+            this._subs = {};
+            this._data = data;
+        }
+
+        $on() {
+            //your code
+            let key = arguments[0];
+            let callback = arguments[1];
+            if(!this._subs[key]) this._subs[key] = [];
+            this._subs[key].push(callback);
+        }
+        $emit() {
+            // your code
+            let key = arguments[0];
+            let value = arguments[1];
+            this._data[key] = value;
+            if(!this._subs[key]) return;
+            this._subs[key].forEach(callback=>{
+                callback(value)
+            })
+        }
+    }
+
+    const w = new Watcher({a: 1});
+    w.$on('a', (v) => {
+        console.log('first ', v)
+    })
+
+    w.$on('a', (v) => {
+        console.log('second ', v)
+    })
+
+    w.a = 2; // console: first 2  second 2
+
+    w.$emit('a', 3); // console: first 3  second 3
+    w.a === 3; // true
+    ```
