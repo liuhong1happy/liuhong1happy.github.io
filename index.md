@@ -26,11 +26,17 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
   {% include JB/tags_list %}
 </ul>
 
-## 经典项目
+## 项目
 
-| [E360Player](https://github.com/liuhong1happy/E360Player)      |  [react-native-2048](https://github.com/ReactLover/react-native-2048) |   [react-umeditor](https://github.com/liuhong1happy/react-umeditor)   |
-| :-------- | --------:| :------: |
-| [react-raphael](https://github.com/liuhong1happy/react-raphael)    |   [react-native-wallpaper-manager](https://github.com/liuhong1happy/react-native-wallpaper-manager) |  [similar-react-router](https://github.com/liuhong1happy/similar-react-router)  |
+- [E360Player](https://github.com/liuhong1happy/E360Player) 全景播放器
+- [react-native-2048](https://github.com/ReactLover/react-native-2048) 2048小游戏
+
+## 组件
+
+- [similar-react-router](https://github.com/liuhong1happy/similar-react-router) 简单的路由
+- [react-umeditor](https://github.com/liuhong1happy/react-umeditor) 富文本编辑器
+- [react-raphael](https://github.com/liuhong1happy/react-raphael) raphael react化组件
+- [react-native-wallpaper-manager](https://github.com/liuhong1happy/react-native-wallpaper-manager) 安卓壁纸
 
 ## 友情链接
 
@@ -46,7 +52,8 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [Bootstrap中文网](http://www.bootcss.com/)
 - [ReactJS中文文档](http://reactjs.cn/)
 - [ReactJS英文文档](https://facebook.github.io/react/)
-- [Flux英文文档](http://facebook.github.io/flux/)
+- [React Redux英文文档](https://react-redux.js.org/introduction/quick-start)
+- [Dva中文文档](https://dvajs.com/guide/)
 
 #### 后端技术站点
 
@@ -75,6 +82,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 #### 测试技术站点
 
 - [Selenium](http://www.51testing.com/zhuanti/selenium.html)
+- [Puppeteer中文文档](https://zhaoqize.github.io/puppeteer-api-zh_CN/#/)
 
 ## 联系方式
 
