@@ -37,6 +37,7 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [react-umeditor](https://github.com/liuhong1happy/react-umeditor) 富文本编辑器
 - [react-raphael](https://github.com/liuhong1happy/react-raphael) raphael react化组件
 - [react-native-wallpaper-manager](https://github.com/liuhong1happy/react-native-wallpaper-manager) 安卓壁纸
+- [flutter-dva](https://github.com/liuhong1happy/flutter_dva) Flutter版Dva
 
 ## 友情链接
 
@@ -69,6 +70,9 @@ tagline: "人生到处知何似，应似飞鸿踏雪泥"
 - [React Native英文文档](https://facebook.github.io/react-native/)
 - [React Native中文文档](http://reactnative.cn/)
 - [React Native官方网站](http://reactnative.com)
+- [Flutter中文社区](https://flutterchina.club)
+- [Dart中文网](http://dart.goodev.org/)
+- [Flutter中文文档](https://flutter-io.cn/docs)
 
 #### 桌面端技术站点
 
