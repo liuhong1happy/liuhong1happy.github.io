@@ -86,7 +86,25 @@ theme :
     插入排序的思想：将数字插入到已排好序的队列中，直到所有数值排好序。
     冒泡排序的思想：队列中的数值两两比较，谁大放后面，一轮下来后最大的会被排在后面。
 8. 什么是二分查找
-9. http 协议
+```js
+function binarySearch(arry, val) {
+	var start = 0
+	var end = arry.length - 1
+	while(start <= end) {
+		let mid = (start + end) / 2;
+		if(val > array[mid]) {
+			start = mid + 1;
+		} else if(val < array[mid]) {
+			end = mid - 1;
+		} else {
+			return mid;
+		}	
+	}
+	return -1;
+}
+```
+
+10. http 协议
 
     Http报头分为通用报头，请求报头，响应报头和实体报头。 
 
